@@ -1,0 +1,26 @@
+<h1>log</h1>
+
+<table border="1">
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Pages</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    {% for log in object_list %}
+    <tr>
+    <td>{{ log.name }}</td>
+    <td>{{ log.pages }}</td>
+    <td><a href="{% url "log_view" log.id %}">view</a></td>
+    <td><a href="{% url "log_edit" log.id %}">edit</a></td>
+    <td><a href="{% url "log_delete" log.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="{% url "log_new" %}">New</a>
